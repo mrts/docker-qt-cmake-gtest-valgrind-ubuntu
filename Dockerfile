@@ -17,3 +17,8 @@ RUN apt-get update && \
         libpcsclite-dev && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists
+
+# Build GTest library
+RUN cd /usr/src/googletest && \
+    cmake . && \
+    cmake --build . --target install
