@@ -13,7 +13,8 @@ RUN apt-get update && \
         cmake \
         libgtest-dev \
         valgrind \
-        qtbase5-dev qtdeclarative5-dev qml-module-qtquick-controls qt5-default \
+        qtbase5-dev qtdeclarative5-dev qt5-default \
+        qml-module-qtquick-controls qml-module-qtquick-controls2 \
         libpcsclite-dev && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists
