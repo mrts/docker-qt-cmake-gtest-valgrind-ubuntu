@@ -12,6 +12,7 @@ RUN apt-get update && \
         pkg-config \
         cmake \
         libgtest-dev \
+        libssl-dev \
         valgrind \
         qtbase5-dev qtdeclarative5-dev qt5-default \
         qml-module-qtquick-controls qml-module-qtquick-controls2 \
