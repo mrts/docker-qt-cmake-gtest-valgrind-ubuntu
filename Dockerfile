@@ -13,7 +13,7 @@ RUN apt-get update && \
         cmake \
         libgtest-dev \
         libssl-dev \
-        dh-make devscripts cdbs \
+        dh-make devscripts cdbs fakeroot \
         valgrind \
         qtbase5-dev qtdeclarative5-dev qt5-default \
         qml-module-qtquick-controls qml-module-qtquick-controls2 \
