@@ -15,9 +15,9 @@ RUN apt-get update && \
         libssl-dev \
         dh-make devscripts cdbs fakeroot \
         valgrind \
-        qtbase5-dev qtdeclarative5-dev qt5-default \
-        qml-module-qtquick-controls qml-module-qtquick-controls2 \
-        libpcsclite-dev && \
+        qtbase5-dev qt5-default \
+        # qtdeclarative5-dev qml-module-qtquick-controls qml-module-qtquick-controls2 \
+        pcscd libpcsclite-dev && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists
 
