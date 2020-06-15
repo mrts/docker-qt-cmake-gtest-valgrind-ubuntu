@@ -2,13 +2,16 @@
 
 FROM ubuntu:latest
 
+# Avoid prompts during tzdata configuration
+ENV DEBIAN_FRONTEND=noninteractive
+
 # Install Ubuntu packages, as each RUN commits the layer to image, need to
 # chain commands and clean up in the end to keep the image small
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
         git \
         build-essential \
-        clang-8 clang-format-8 \
+        clang-10 clang-format-10 \
         pkg-config \
         cmake \
         libgtest-dev \
@@ -16,17 +19,19 @@ RUN apt-get update && \
         dh-make devscripts cdbs fakeroot \
         valgrind \
         qtbase5-dev qt5-default \
+        qttools5-dev \
+        # For QML:
         # qtdeclarative5-dev qml-module-qtquick-controls qml-module-qtquick-controls2 \
         pcscd libpcsclite-dev && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists
 
-# Alias cc, c++, clang and clang-format to Clang 8
-RUN update-alternatives --install /usr/bin/cc cc /usr/bin/clang-8 100 && \
-    update-alternatives --install /usr/bin/c++ c++ /usr/bin/clang++-8 100 && \
-    update-alternatives --install /usr/bin/clang clang /usr/bin/clang-8 100 && \
-    update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-8 100 && \
-    update-alternatives --install /usr/bin/clang-format clang-format /usr/bin/clang-format-8 100
+# Alias cc, c++, clang and clang-format to Clang 10
+RUN update-alternatives --install /usr/bin/cc cc /usr/bin/clang-10 100 && \
+    update-alternatives --install /usr/bin/c++ c++ /usr/bin/clang++-10 100 && \
+    update-alternatives --install /usr/bin/clang clang /usr/bin/clang-10 100 && \
+    update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-10 100 && \
+    update-alternatives --install /usr/bin/clang-format clang-format /usr/bin/clang-format-10 100
 
 # Build GTest library
 RUN cd /usr/src/googletest && \
