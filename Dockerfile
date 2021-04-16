@@ -18,7 +18,7 @@ RUN apt-get update && \
         libssl-dev \
         dh-make devscripts cdbs fakeroot \
         valgrind \
-        qtbase5-dev qt5-default \
+        qtbase5-dev qt5-default libqt5svg5-dev \
         qttools5-dev \
         # For QML:
         # qtdeclarative5-dev qml-module-qtquick-controls qml-module-qtquick-controls2 \
