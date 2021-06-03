@@ -11,7 +11,7 @@ RUN apt-get update && \
     apt-get install -y --no-install-recommends \
         git \
         build-essential \
-        clang-10 clang-format-10 \
+        clang clang-format \
         pkg-config \
         cmake \
         libgtest-dev \
@@ -26,12 +26,9 @@ RUN apt-get update && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists
 
-# Alias cc, c++, clang and clang-format to Clang 10
-RUN update-alternatives --install /usr/bin/cc cc /usr/bin/clang-10 100 && \
-    update-alternatives --install /usr/bin/c++ c++ /usr/bin/clang++-10 100 && \
-    update-alternatives --install /usr/bin/clang clang /usr/bin/clang-10 100 && \
-    update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-10 100 && \
-    update-alternatives --install /usr/bin/clang-format clang-format /usr/bin/clang-format-10 100
+# Optionally alias cc, c++ to Clang
+# RUN update-alternatives --install /usr/bin/cc cc /usr/bin/clang 100 && \
+#     update-alternatives --install /usr/bin/c++ c++ /usr/bin/clang++ 100
 
 # Build GTest library
 RUN cd /usr/src/googletest && \

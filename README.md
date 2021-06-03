@@ -7,6 +7,6 @@ with  Qt, CMake, Google Test, Valgrind, clang-format and C++ build tools.
 # Usage
 
     docker build --tag=mrts/qt-cmake-gtest-valgrind-ubuntu .
-    docker tag mrts/qt-cmake-gtest-valgrind-ubuntu:latest mrts/qt-cmake-gtest-valgrind-ubuntu:v1.9
+    docker tag mrts/qt-cmake-gtest-valgrind-ubuntu:latest mrts/qt-cmake-gtest-valgrind-ubuntu:v1.10
     docker login
     docker push mrts/qt-cmake-gtest-valgrind-ubuntu
